@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -39,8 +41,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/list")
-    public List<Employee> getEmployees (String list) {
-        List<Employee> employees = employeeService.getEmployees();
-        return employees;
+    public Collection<Employee> getEmployees() {
+        return employeeService.getEmployees();
     }
 }
