@@ -17,8 +17,8 @@ public class EmployeeService implements EmployeeServiceInterface {
     }
 
     @Override
-    public Employee addEmployee(String firstName, String lastName) {
-        Employee employee = new Employee(firstName, lastName);
+    public Employee addEmployee(String firstName, String lastName, int departmentId, int salary) {
+        Employee employee = new Employee(firstName, lastName, departmentId, salary);
         if (employees.containsKey(employee.getFullName())) {
             throw new EmployeeAlreadyAddedException();
         }
@@ -27,8 +27,8 @@ public class EmployeeService implements EmployeeServiceInterface {
     }
 
     @Override
-    public Employee removeEmployee(String firstName, String lastName) {
-        Employee employee = new Employee(firstName, lastName);
+    public Employee removeEmployee(String firstName, String lastName, int departmentId, int salary) {
+        Employee employee = new Employee(firstName, lastName, departmentId, salary);
         if (!employees.containsKey(employee.getFullName())) {
             throw new EmployeeNotFoundException();
         }
@@ -37,8 +37,8 @@ public class EmployeeService implements EmployeeServiceInterface {
     }
 
     @Override
-    public Employee findEmployee(String firstName, String lastName) {
-        Employee employee = new Employee(firstName, lastName);
+    public Employee findEmployee(String firstName, String lastName, int departmentId, int salary) {
+        Employee employee = new Employee(firstName, lastName, departmentId, salary);
         if (!employees.containsKey(employee.getFullName())) {
             throw new EmployeeNotFoundException();
         }

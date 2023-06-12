@@ -6,11 +6,30 @@ public class Employee {
 
     private String firstName;
     private String lastName;
+    private int departmentId;
+    private int salary;
 
-
-    public Employee(String firstName, String lastName) {
+    public Employee(String firstName, String lastName, int departmentId, int salary) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.departmentId = departmentId;
+        this.salary = salary;
+    }
+
+    public int getDepartment() {
+        return departmentId;
+    }
+
+    public void setDepartment(int departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public String getFullName() {
@@ -20,8 +39,10 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "Имя" + firstName + '\'' +
-                ", Фамилия" + lastName + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", departmentId=" + departmentId +
+                ", salary=" + salary +
                 '}';
     }
 
@@ -30,12 +51,12 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
+        return departmentId == employee.departmentId && salary == employee.salary && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName);
+        return Objects.hash(firstName, lastName, departmentId, salary);
     }
 
     public String getFirstName() {
